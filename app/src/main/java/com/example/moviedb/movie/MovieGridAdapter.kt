@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.moviedb.databinding.GridViewItemBinding
 import com.example.moviedb.network.MovieInfoResponse
 
-class MovieGridAdapter : ListAdapter<MovieInfoResponse, MovieGridAdapter.MovieViewHolder>(DiffCallback){
-    class MovieViewHolder(private var binding: GridViewItemBinding): RecyclerView.ViewHolder(binding.root) {
+class MovieGridAdapter :
+    ListAdapter<MovieInfoResponse, MovieGridAdapter.MovieViewHolder>(DiffCallback) {
+    class MovieViewHolder(private var binding: GridViewItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(item: MovieInfoResponse) {
             binding.movie = item
         }
@@ -23,7 +25,8 @@ class MovieGridAdapter : ListAdapter<MovieInfoResponse, MovieGridAdapter.MovieVi
         val item = getItem(position)
         holder.bind(item)
     }
-    companion object DiffCallback : DiffUtil.ItemCallback<MovieInfoResponse>(){
+
+    companion object DiffCallback : DiffUtil.ItemCallback<MovieInfoResponse>() {
         override fun areItemsTheSame(
             oldItem: MovieInfoResponse,
             newItem: MovieInfoResponse
@@ -37,6 +40,5 @@ class MovieGridAdapter : ListAdapter<MovieInfoResponse, MovieGridAdapter.MovieVi
         ): Boolean {
             return oldItem.originalTitle == newItem.originalTitle
         }
-
     }
 }

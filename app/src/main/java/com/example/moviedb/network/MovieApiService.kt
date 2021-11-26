@@ -1,3 +1,4 @@
+import com.example.moviedb.network.MovieInfoResponse
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
@@ -17,7 +18,7 @@ private val retrofit = Retrofit.Builder()
 
 interface MovieApiService {
     @GET("/3/movie/550?api_key=aecfaa3cec82d0f9182bbf8e19b77f75")
-    suspend fun getInfo(): String
+    suspend fun getInfo(): MovieInfoResponse
 }
 
 object MovieApi {
