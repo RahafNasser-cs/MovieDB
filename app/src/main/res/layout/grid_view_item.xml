@@ -5,7 +5,7 @@
     <data>
         <variable
             name="movie"
-            type="com.example.moviedb.network.MovieInfoResponse" />
+            type="com.example.moviedb.network.ResultsItem" />
     </data>
     <androidx.cardview.widget.CardView
         android:layout_width="150dp"
@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:id="@+id/textview"
-                android:text="@{movie.originalTitle}"
+                android:text="@{movie.title}"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 

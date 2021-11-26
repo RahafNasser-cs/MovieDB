@@ -19,6 +19,7 @@ class HomeFragment : Fragment() {
         val binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
+        binding.recyclerView.adapter = MovieGridAdapter()
         return binding.root
     }
 }

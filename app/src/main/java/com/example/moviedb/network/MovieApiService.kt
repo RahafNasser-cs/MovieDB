@@ -17,7 +17,7 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface MovieApiService {
-    @GET("/3/movie/550?api_key=aecfaa3cec82d0f9182bbf8e19b77f75")
+    @GET("/3/movie/popular?api_key=aecfaa3cec82d0f9182bbf8e19b77f75")
     suspend fun getInfo(): MovieInfoResponse
 }
 
