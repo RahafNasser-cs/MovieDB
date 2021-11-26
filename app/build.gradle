@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    //gson
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -58,4 +60,6 @@ dependencies {
     implementation 'com.squareup.moshi:moshi-kotlin:1.9.3'
     // Coil
     implementation "io.coil-kt:coil:1.1.1"
+    //gson
+    implementation 'com.google.code.gson:gson:2.8.7'
 }
