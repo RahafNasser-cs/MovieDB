@@ -2,6 +2,7 @@ package com.example.moviedb.movie
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -14,6 +15,20 @@ class MovieGridAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ResultsItem) {
             binding.movie = item
+            binding.executePendingBindings()
+            binding.cardView.setOnClickListener {
+                val action = HomeFragmentDirections.actionHomeFragmentToDetailsFragment(
+                    item.title,
+                    item.poster_path,
+                    item.release_date,
+                    item.overview,
+                    item.vote_average.toString()
+                )
+                binding.root.findNavController()
+                    .navigate(action)
+            }
+            binding.likeImg.setOnClickListener {
+            }
         }
     }
 

@@ -2,43 +2,44 @@ package com.example.moviedb.network
 
 data class MovieInfoResponse(
 
-    val page: Int? = null,
+    val page: Int,
 
-    val total_pages: Int? = null,
+    val total_pages: Int,
 
-    val results: List<ResultsItem?>? = null,
+    val results: List<ResultsItem>,
 
-    val total_results: Int? = null
+    val total_results: Int
 )
 
 data class ResultsItem(
 
-    val overview: String? = null,
+    val overview: String,
 
-    val original_language: String? = null,
+    val original_language: String,
 
-    val original_title: String? = null,
+    val original_title: String,
 
-    val video: Boolean? = null,
+    val video: Boolean,
 
-    val title: String? = null,
+    val title: String,
 
-    val genre_ids: List<Int?>? = null,
+    val genre_ids: List<Int>,
 
-    val poster_path: String? = null,
+    val poster_path: String,
 
-    val backdrop_path: String? = null,
+    val backdrop_path: String,
 
-    val release_date: String? = null,
+    val release_date: String,
 
-    val popularity: Double? = null,
+    val popularity: Double,
 
-    val vote_average: Double? = null,
+    val vote_average: Double,
 
-    val id: Int? = null,
+    val id: Int,
 
-    val adult: Boolean? = null,
+    val adult: Boolean,
 
-    val vote_count: Int? = null
-)
-// @field:SerializedName("vote_count")
+    val vote_count: Int
+) {
+    fun getVoteAverage(): String = vote_average.toString()
+}
