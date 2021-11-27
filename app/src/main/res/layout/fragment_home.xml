@@ -8,6 +8,9 @@
         <variable
             name="viewModel"
             type="com.example.moviedb.model.MovieViewModel" />
+        <variable
+            name="homeFragment"
+            type="com.example.moviedb.movie.HomeFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
