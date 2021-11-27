@@ -23,9 +23,6 @@ fun ImageView.bindImage(imageUrl: String?) {
 
 @BindingAdapter("listData")
 fun RecyclerView.bindRecyclerView(data: List<ResultsItem>?) {
-    if (this.adapter == null) {
-        this.adapter = MovieGridAdapter()
-    }
     val adapter = this.adapter as MovieGridAdapter
     adapter.submitList(data)
 }

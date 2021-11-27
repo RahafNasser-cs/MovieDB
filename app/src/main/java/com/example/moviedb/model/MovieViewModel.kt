@@ -16,9 +16,8 @@ class MovieViewModel : ViewModel() {
     val movie: MutableLiveData<List<ResultsItem>> get() = _movie
     private var _status = MutableLiveData<MovieApiStatus>()
     val status: LiveData<MovieApiStatus> get() = _status
-    var _favMovies = MutableLiveData<ResultsItem>()
-    val favMovies: MutableLiveData<ResultsItem> get() = _favMovies
-    val favMovieList = FavouriteMovies()
+    var _favMovies = MutableLiveData<List<ResultsItem>>()
+    val favMovies: MutableLiveData<List<ResultsItem>> get() = _favMovies
 
     private var _movieTitle = MutableLiveData<String>()
     val movieTitle: MutableLiveData<String> get() = _movieTitle
@@ -33,6 +32,7 @@ class MovieViewModel : ViewModel() {
 
     init {
         getMovie()
+        setFavMovieList()
     }
 
     private fun getMovie() {
@@ -49,7 +49,15 @@ class MovieViewModel : ViewModel() {
         }
     }
 
+    fun setFavMovieList() {
+        _favMovies.value = favMovieList.loadFavMovie()
+    }
+
     fun addFavMovie(movie: ResultsItem) {
         favMovieList.addMovie(movie)
+    }
+
+    companion object {
+        val favMovieList = FavouriteMovies()
     }
 }

@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.moviedb.databinding.FragmentDetailsBinding
 import com.example.moviedb.model.MovieViewModel
 
@@ -48,6 +50,9 @@ class DetailsFragment : Fragment() {
         viewModel.movieDescription.value = movieDescription
         viewModel.movieReleaseDate.value = movieReleaseDate
         viewModel.movieVoteAverage.value = movieVoteAverage
+        requireActivity().onBackPressedDispatcher.addCallback {
+            findNavController().navigateUp()
+        }
     }
 
     companion object {

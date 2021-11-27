@@ -17,23 +17,29 @@
        android:layout_width="match_parent"
        android:layout_height="match_parent">
 
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:textSize="30sp"
-           android:text="movie"
-           android:id="@+id/movie_title"
+       <androidx.recyclerview.widget.RecyclerView
+           android:layout_width="match_parent"
+           android:layout_height="650dp"
+           android:id="@+id/recycler_view"
+           app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+           app:spanCount="2"
+           android:padding="15dp"
+           android:clipToPadding="false"
+           app:listData="@{viewModel.favMovies}"
+           tools:listitem="@layout/grid_view_item"
            app:layout_constraintTop_toTopOf="parent"
-           app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintBottom_toBottomOf="parent"/>
+           app:layout_constraintStart_toStartOf="parent"
+           />
        <ImageView
-           android:layout_width="200dp"
-           android:layout_height="200dp"
-           app:imageUrl="@{movie.poster_path}"
-           app:layout_constraintTop_toBottomOf="@+id/movie_title"
-           app:layout_constraintStart_toStartOf="@+id/movie_title"
-           app:layout_constraintEnd_toEndOf="@+id/movie_title"/>
+           app:movieApiStatus="@{viewModel.status}"
+           android:layout_width="100dp"
+           android:layout_height="100dp"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintBottom_toBottomOf="parent"
+           />
    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
