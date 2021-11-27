@@ -3,10 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/CS_ra/Downloads/MovieDB/app/src/main/res/drawable/ic_baseline_favorite.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/CS_ra/Downloads/MovieDB/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/CS_ra/Downloads/MovieDB/app/src/main/res/drawable/ic_baseline_star_24.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/CS_ra/Downloads/MovieDB/app/src/main/res/drawable/ic_connection_error.xml" value="0.20572916666666666" />
         <entry key="..\:/Users/CS_ra/Downloads/MovieDB/app/src/main/res/layout/activity_main.xml" value="0.2359375" />
         <entry key="..\:/Users/CS_ra/Downloads/MovieDB/app/src/main/res/layout/fragment_details.xml" value="0.25" />
+        <entry key="..\:/Users/CS_ra/Downloads/MovieDB/app/src/main/res/layout/fragment_favourite.xml" value="0.2359375" />
         <entry key="..\:/Users/CS_ra/Downloads/MovieDB/app/src/main/res/layout/fragment_home.xml" value="0.2359375" />
-        <entry key="..\:/Users/CS_ra/Downloads/MovieDB/app/src/main/res/layout/grid_view_item.xml" value="0.41702867072111205" />
+        <entry key="..\:/Users/CS_ra/Downloads/MovieDB/app/src/main/res/layout/grid_view_item.xml" value="0.16839378238341968" />
+        <entry key="..\:/Users/CS_ra/Downloads/MovieDB/app/src/main/res/menu/menu.xml" value="0.18958333333333333" />
       </map>
     </option>
   </component>

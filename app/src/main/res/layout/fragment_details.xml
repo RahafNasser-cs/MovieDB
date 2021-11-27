@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".movie.DetailsFragment">
     <data>
         <variable
@@ -9,10 +10,104 @@
     </data>
 
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/movie_img"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:imageUrl="@{viewModel.movieImageUrl}"
+            />
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:id="@+id/star_img"
+            app:layout_constraintStart_toStartOf="@id/titel"
+            app:layout_constraintTop_toBottomOf="@+id/titel"
+            android:src="@drawable/ic_baseline_star_24"/>
+
+        <TextView
+            android:id="@+id/rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@{viewModel.movieVoteAverage}"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/star_img"
+            app:layout_constraintTop_toTopOf="@id/star_img"
+            app:layout_constraintBottom_toBottomOf="@id/star_img"/>
+
+        <TextView
+            android:id="@+id/titel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.movieTitle}"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:padding="10dp"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/movie_img" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="The Story:"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/titel"
+            app:layout_constraintTop_toBottomOf="@id/releaseDate" />
+
+        <TextView
+            android:id="@+id/releaseDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@{viewModel.movieReleaseDate}"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="180dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/rate"
+            app:layout_constraintBottom_toBottomOf="@id/rate"
+            app:layout_constraintTop_toBottomOf="@id/titel"
+             />
+
+        <TextView
+            android:id="@+id/movieDescription"
+            android:layout_width="370dp"
+            android:layout_height="157dp"
+            android:text="@{viewModel.movieDescription}"
+            android:textSize="18sp"
+            android:layout_gravity="center_vertical|end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description"
+            android:layout_marginBottom="20dp"
+            />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </layout>

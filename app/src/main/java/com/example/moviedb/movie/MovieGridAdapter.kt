@@ -2,18 +2,33 @@ package com.example.moviedb.movie
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moviedb.databinding.GridViewItemBinding
-import com.example.moviedb.network.MovieInfoResponse
+import com.example.moviedb.network.ResultsItem
 
 class MovieGridAdapter :
-    ListAdapter<MovieInfoResponse, MovieGridAdapter.MovieViewHolder>(DiffCallback) {
+    ListAdapter<ResultsItem, MovieGridAdapter.MovieViewHolder>(DiffCallback) {
     class MovieViewHolder(private var binding: GridViewItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: MovieInfoResponse) {
+        fun bind(item: ResultsItem) {
             binding.movie = item
+            binding.executePendingBindings()
+            binding.cardView.setOnClickListener {
+                val action = HomeFragmentDirections.actionHomeFragmentToDetailsFragment(
+                    item.title,
+                    item.poster_path,
+                    item.release_date,
+                    item.overview,
+                    item.vote_average.toString()
+                )
+                binding.root.findNavController()
+                    .navigate(action)
+            }
+            binding.likeImg.setOnClickListener {
+            }
         }
     }
 
@@ -26,19 +41,19 @@ class MovieGridAdapter :
         holder.bind(item)
     }
 
-    companion object DiffCallback : DiffUtil.ItemCallback<MovieInfoResponse>() {
+    companion object DiffCallback : DiffUtil.ItemCallback<ResultsItem>() {
         override fun areItemsTheSame(
-            oldItem: MovieInfoResponse,
-            newItem: MovieInfoResponse
+            oldItem: ResultsItem,
+            newItem: ResultsItem
         ): Boolean {
             return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(
-            oldItem: MovieInfoResponse,
-            newItem: MovieInfoResponse
+            oldItem: ResultsItem,
+            newItem: ResultsItem
         ): Boolean {
-            return oldItem.originalTitle == newItem.originalTitle
+            return oldItem.title == newItem.title
         }
     }
 }

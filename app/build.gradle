@@ -4,13 +4,18 @@ plugins {
     id 'kotlin-kapt'
     //gson
     id 'kotlin-parcelize'
+    //save args
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
     compileSdk 31
 
-    buildFeatures{
+    buildFeatures {
         dataBinding true
+    }
+    dataBinding{
+        enabled=true
     }
 
     defaultConfig {
@@ -52,6 +57,8 @@ dependencies {
     //Navigation
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.2'
+    //LiveData
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     // Retrofit with Moshi Converter
@@ -62,4 +69,5 @@ dependencies {
     implementation "io.coil-kt:coil:1.1.1"
     //gson
     implementation 'com.google.code.gson:gson:2.8.7'
+
 }

@@ -1,134 +1,45 @@
 package com.example.moviedb.network
 
-import android.os.Parcelable
-import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
-import kotlinx.android.parcel.RawValue
-
-@Parcelize
 data class MovieInfoResponse(
 
-    @field:SerializedName("original_language")
-    val originalLanguage: String? = null,
+    val page: Int,
 
-    @field:SerializedName("imdb_id")
-    val imdbId: String? = null,
+    val total_pages: Int,
 
-    @field:SerializedName("video")
-    val video: Boolean? = null,
+    val results: List<ResultsItem>,
 
-    @field:SerializedName("title")
-    val title: String? = null,
+    val total_results: Int
+)
 
-    @field:SerializedName("backdrop_path")
-    val backdropPath: String? = null,
+data class ResultsItem(
 
-    @field:SerializedName("revenue")
-    val revenue: Int? = null,
+    val overview: String,
 
-    @field:SerializedName("genres")
-    val genres: List<GenresItem?>? = null,
+    val original_language: String,
 
-    @field:SerializedName("popularity")
-    val popularity: Double? = null,
+    val original_title: String,
 
-    @field:SerializedName("production_countries")
-    val productionCountries: List<ProductionCountriesItem?>? = null,
+    val video: Boolean,
 
-    @field:SerializedName("id")
-    val id: Int? = null,
+    val title: String,
 
-    @field:SerializedName("vote_count")
-    val voteCount: Int? = null,
+    val genre_ids: List<Int>,
 
-    @field:SerializedName("budget")
-    val budget: Int? = null,
+    val poster_path: String,
 
-    @field:SerializedName("overview")
-    val overview: String? = null,
+    val backdrop_path: String,
 
-    @field:SerializedName("original_title")
-    val originalTitle: String? = null,
+    val release_date: String,
 
-    @field:SerializedName("runtime")
-    val runtime: Int? = null,
+    val popularity: Double,
 
-    @field:SerializedName("poster_path")
-    val posterPath: String? = null,
+    val vote_average: Double,
 
-    @field:SerializedName("spoken_languages")
-    val spokenLanguages: List<SpokenLanguagesItem?>? = null,
+    val id: Int,
 
-    @field:SerializedName("production_companies")
-    val productionCompanies: List<ProductionCompaniesItem?>? = null,
+    val adult: Boolean,
 
-    @field:SerializedName("release_date")
-    val releaseDate: String? = null,
-
-    @field:SerializedName("vote_average")
-    val voteAverage: Double? = null,
-
-    @field:SerializedName("belongs_to_collection")
-    val belongsToCollection: @RawValue Any? = null,
-
-    @field:SerializedName("tagline")
-    val tagline: String? = null,
-
-    @field:SerializedName("adult")
-    val adult: Boolean? = null,
-
-    @field:SerializedName("homepage")
-    val homepage: String? = null,
-
-    @field:SerializedName("status")
-    val status: String? = null
-) : Parcelable
-
-@Parcelize
-data class SpokenLanguagesItem(
-
-    @field:SerializedName("name")
-    val name: String? = null,
-
-    @field:SerializedName("iso_639_1")
-    val iso6391: String? = null,
-
-    @field:SerializedName("english_name")
-    val englishName: String? = null
-) : Parcelable
-
-@Parcelize
-data class GenresItem(
-
-    @field:SerializedName("name")
-    val name: String? = null,
-
-    @field:SerializedName("id")
-    val id: Int? = null
-) : Parcelable
-
-@Parcelize
-data class ProductionCountriesItem(
-
-    @field:SerializedName("iso_3166_1")
-    val iso31661: String? = null,
-
-    @field:SerializedName("name")
-    val name: String? = null
-) : Parcelable
-
-@Parcelize
-data class ProductionCompaniesItem(
-
-    @field:SerializedName("logo_path")
-    val logoPath: String? = null,
-
-    @field:SerializedName("name")
-    val name: String? = null,
-
-    @field:SerializedName("id")
-    val id: Int? = null,
-
-    @field:SerializedName("origin_country")
-    val originCountry: String? = null
-) : Parcelable
+    val vote_count: Int
+) {
+    fun getVoteAverage(): String = vote_average.toString()
+}
