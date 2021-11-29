@@ -2,10 +2,7 @@ package com.example.moviedb.movie
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
@@ -40,13 +37,6 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        requireActivity().onBackPressedDispatcher.addCallback {
-            findNavController().navigateUp()
-        }
-    }
-
     fun goToNextFragment() {
 //        findNavController().navigate(R.id.action_homeFragment_to_detailsFragment)
         Toast.makeText(requireContext(), "goToNextFragment()", Toast.LENGTH_LONG).show()
@@ -58,6 +48,9 @@ class HomeFragment : Fragment() {
         Log.d("Home Frag addFavMovie()  ", "${viewModel.favMovies.value!!}")
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu, menu)
+    }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.favorite_page -> {

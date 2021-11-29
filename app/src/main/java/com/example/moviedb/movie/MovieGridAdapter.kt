@@ -47,8 +47,6 @@ class MovieGridAdapter(var flag: String) :
                 Log.d("adapter before", "${favMovieList.loadFavMovie()}")
                 favMovieList.addMovie(item)
                 Log.d("adapter after", "${favMovieList.loadFavMovie()}")
-                binding.root.findNavController()
-                    .navigate(R.id.action_homeFragment_to_favouriteFragment)
             }
         }
     }

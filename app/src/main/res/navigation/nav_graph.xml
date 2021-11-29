@@ -12,10 +12,14 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+            app:destination="@id/detailsFragment"
+            app:popUpTo="@id/homeFragment"
+            />
         <action
             android:id="@+id/action_homeFragment_to_favouriteFragment"
-            app:destination="@id/favouriteFragment" />
+            app:destination="@id/favouriteFragment"
+            app:popUpTo="@id/homeFragment"
+            />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
@@ -23,11 +27,10 @@
         android:label="Overview"
         tools:layout="@layout/fragment_details">
         <action
-            android:id="@+id/action_detailsFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-        <action
             android:id="@+id/action_detailsFragment_to_favouriteFragment"
-            app:destination="@id/favouriteFragment" />
+            app:destination="@id/favouriteFragment"
+
+            />
         <argument
             android:name="movieTitle"
             app:argType="string" />
@@ -49,11 +52,15 @@
         android:name="com.example.moviedb.movie.FavouriteFragment"
         android:label="Favourite"
         tools:layout="@layout/fragment_favourite">
-        <action
-            android:id="@+id/action_favouriteFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+<!--        <action-->
+<!--            android:id="@+id/action_favouriteFragment_to_homeFragment"-->
+<!--            app:destination="@id/homeFragment"-->
+<!--            app:popUpTo="@id/homeFragment"/>-->
         <action
             android:id="@+id/action_favouriteFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+            app:destination="@id/detailsFragment"
+            app:popUpTo="@id/favouriteFragment"
+
+            />
     </fragment>
 </navigation>

@@ -13,9 +13,9 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
 
-        <item name="cardViewStyle">@style/MyStyle.Cardview.white</item>
+<!--        <item name="cardViewStyle">@style/MyStyle.Cardview.White</item>-->
     </style>
-    <style name="MyStyle" parent="Theme.AppCompat">
-        <item name="cardViewStyle">@style/MyStyle.Cardview.white</item>
-    </style>
+<!--    <style name="MyStyle" parent="Theme.AppCompat">-->
+<!--        <item name="cardViewStyle">@style/MyStyle.Cardview.White</item>-->
+<!--    </style>-->
 </resources>
