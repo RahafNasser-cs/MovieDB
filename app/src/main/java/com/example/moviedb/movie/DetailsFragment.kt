@@ -1,16 +1,16 @@
 package com.example.moviedb.movie
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.activity.addCallback
+import android.util.Log
+import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.moviedb.R
 import com.example.moviedb.databinding.FragmentDetailsBinding
 import com.example.moviedb.model.MovieViewModel
+import com.example.moviedb.utility.ui.upToTop
 
 class DetailsFragment : Fragment() {
     private val viewModel: MovieViewModel by viewModels()
@@ -22,6 +22,8 @@ class DetailsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+
         arguments?.let {
             movieTitle = it.getString(MOVIETITLE).toString()
             movieImageUrl = it.getString(MOVIEIMAGEURL).toString()
@@ -39,6 +41,7 @@ class DetailsFragment : Fragment() {
         val binding = FragmentDetailsBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
+//
         return binding.root
     }
 
@@ -50,9 +53,21 @@ class DetailsFragment : Fragment() {
         viewModel.movieDescription.value = movieDescription
         viewModel.movieReleaseDate.value = movieReleaseDate
         viewModel.movieVoteAverage.value = movieVoteAverage
-        requireActivity().onBackPressedDispatcher.addCallback {
-            findNavController().navigateUp()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.favorite_page -> {
+                findNavController().navigate(R.id.action_detailsFragment_to_favouriteFragment)
+            } else -> {
+           this.upToTop()
+            }
         }
+        return true
     }
 
     companion object {
@@ -63,3 +78,4 @@ class DetailsFragment : Fragment() {
         const val MOVIEVOTEAVERAGE = "movieVoteAverage"
     }
 }
+
