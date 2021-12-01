@@ -12,7 +12,7 @@ import com.example.moviedb.model.MovieViewModel
 
 class FavouriteFragment : Fragment() {
     private val viewModel: MovieViewModel by viewModels()
-
+    lateinit var binding: FragmentFavouriteBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -23,7 +23,7 @@ class FavouriteFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentFavouriteBinding.inflate(inflater)
+        binding = FragmentFavouriteBinding.inflate(inflater)
         binding.apply {
             lifecycleOwner = this@FavouriteFragment
             viewModel = this@FavouriteFragment.viewModel
@@ -31,6 +31,12 @@ class FavouriteFragment : Fragment() {
         }
         viewModel.setFavMovieList()
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.setFavMovieList()
+        binding.recyclerView.adapter = MovieGridAdapter("favourite")
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

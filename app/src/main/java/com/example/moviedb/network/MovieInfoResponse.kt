@@ -1,5 +1,12 @@
 package com.example.moviedb.network
 
+enum class MovieType(val id: Int) {
+    ANIMATION(16), ACTION(28), ADVENTURE(12), COMEDY(35), CRIME(80),
+    DOCUMENTARY(99), DRAMA(18), FAMILY(10751), FANTASY(14), HISTORY(36),
+    HORROR(27), MUSIC(10402), MYSTERY(9648),
+    ROMANCE(10749), SCIENCE_FICTION(878), TV_MOVIE(10770), THRILLER(53), WAR(10752), WESTERN(37), NULL(0)
+}
+
 data class MovieInfoResponse(
 
     val page: Int,
@@ -39,7 +46,24 @@ data class ResultsItem(
 
     val adult: Boolean,
 
-    val vote_count: Int
+    val vote_count: Int,
 ) {
+    lateinit var movieType: MovieType
+    init {
+        setMovieType()
+    }
+
     fun getVoteAverage(): String = vote_average.toString()
+    fun setMovieType() {
+        for (type in MovieType.values()) {
+            if (genre_ids.contains(type.id)) {
+                movieType = type
+            }
+        }
+    }
+
+    fun filterMovieByType(filterTag: MovieType, movieList: List<ResultsItem>): List<ResultsItem> {
+        var filterList = movieList.toMutableList()
+        return filterList.filter { it.movieType == filterTag }
+    }
 }

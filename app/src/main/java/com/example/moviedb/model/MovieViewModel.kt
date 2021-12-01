@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.moviedb.network.MovieType
 import com.example.moviedb.network.ResultsItem
 import kotlinx.coroutines.launch
 import java.lang.Exception
@@ -18,6 +19,7 @@ class MovieViewModel : ViewModel() {
     val status: LiveData<MovieApiStatus> get() = _status
     var _favMovies = MutableLiveData<List<ResultsItem>>()
     val favMovies: MutableLiveData<List<ResultsItem>> get() = _favMovies
+    var tempMovieList = mutableListOf<ResultsItem>()
 
     private var _movieTitle = MutableLiveData<String>()
     val movieTitle: MutableLiveData<String> get() = _movieTitle
@@ -40,6 +42,7 @@ class MovieViewModel : ViewModel() {
             _status.value = MovieApiStatus.LOADING
             try {
                 _movie.value = MovieApi.retrofitService.getInfo().results
+                tempMovieList = _movie.value!!.toMutableList()
                 _status.value = MovieApiStatus.DONE
             } catch (e: Exception) {
                 Log.d("viewModelScope", "error --> $e")
@@ -53,8 +56,18 @@ class MovieViewModel : ViewModel() {
         _favMovies.value = favMovieList.loadFavMovie()
     }
 
-    fun addFavMovie(movie: ResultsItem) {
-        favMovieList.addMovie(movie)
+    fun loadMovieList(filterTag: MovieType) {
+        if (filterTag == MovieType.NULL) {
+            _movie.value = tempMovieList.toList()
+        } else {
+            var filteredlist = tempMovieList
+            var types = mutableListOf<MovieType>()
+            filteredlist.forEach { types.add(it.movieType) }
+            Log.d("ViewModel --> loadMovieList() before filter", "list of movie type$types")
+            _movie.value = filteredlist.filter { it.movieType == filterTag }.toList()
+            _movie.value!!.forEach { types.add(it.movieType) }
+            Log.d("ViewModel --> loadMovieList() after", "list of movie type$types")
+        }
     }
 
     companion object {

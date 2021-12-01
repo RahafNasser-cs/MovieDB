@@ -1,5 +1,6 @@
 package com.example.moviedb.movie
 
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +9,6 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.moviedb.R
 import com.example.moviedb.databinding.GridViewItemBinding
 import com.example.moviedb.model.MovieViewModel.Companion.favMovieList
 import com.example.moviedb.network.ResultsItem
@@ -45,7 +45,7 @@ class MovieGridAdapter(var flag: String) :
             }
             binding.likeImg.setOnClickListener {
                 Log.d("adapter before", "${favMovieList.loadFavMovie()}")
-                favMovieList.addMovie(item)
+                favMovieList.addMovie(item, it)
                 Log.d("adapter after", "${favMovieList.loadFavMovie()}")
             }
         }

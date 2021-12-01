@@ -11,5 +11,9 @@
         <item name="cardBackgroundColor">@color/black_light</item>
         <item name="backgroundTint">@color/black_light</item>
     </style>
+    <!-- No action bar -->
+    <style name="Theme.Transparent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+    </style>
 
 </resources>
