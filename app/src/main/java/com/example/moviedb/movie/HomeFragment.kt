@@ -42,12 +42,6 @@ class HomeFragment : Fragment() {
         Toast.makeText(requireContext(), "goToNextFragment()", Toast.LENGTH_LONG).show()
     }
 
-//    fun addFavMovie(movie: ResultsItem) {
-//        Log.d("Home Frag addFavMovie()  ", "oooooo")
-//        viewModel.addFavMovie(movie)
-//        Log.d("Home Frag addFavMovie()  ", "${viewModel.favMovies.value!!}")
-//    }
-
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu, menu)
     }

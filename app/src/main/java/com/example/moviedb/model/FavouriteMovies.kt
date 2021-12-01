@@ -2,7 +2,6 @@ package com.example.moviedb.model
 
 import android.view.View
 import android.widget.Toast
-import com.example.moviedb.R
 import com.example.moviedb.network.ResultsItem
 
 class FavouriteMovies {
@@ -18,7 +17,8 @@ class FavouriteMovies {
                 .show()
         } else {
             favMoviesList.add(item)
-            Toast.makeText(view?.context, "${item.title} add to favourite", Toast.LENGTH_SHORT).show()
+            Toast.makeText(view?.context, "${item.title} add to favourite", Toast.LENGTH_SHORT)
+                .show()
         }
     }
 }
