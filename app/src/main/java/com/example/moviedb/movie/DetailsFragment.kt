@@ -1,7 +1,6 @@
 package com.example.moviedb.movie
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -19,6 +18,8 @@ class DetailsFragment : Fragment() {
     lateinit var movieReleaseDate: String
     lateinit var movieDescription: String
     lateinit var movieVoteAverage: String
+    lateinit var isFavMovie: String
+    lateinit var binding: FragmentDetailsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +31,7 @@ class DetailsFragment : Fragment() {
             movieReleaseDate = it.getString(MOVIERELEASEDATE).toString()
             movieDescription = it.getString(MOVIEDESCRIPTION).toString()
             movieVoteAverage = it.getString(MOVIEVOTEAVERAGE).toString()
+            isFavMovie = it.getString(ISFAVMOVIE).toString()
         }
     }
 
@@ -38,7 +40,7 @@ class DetailsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentDetailsBinding.inflate(inflater, container, false)
+        binding = FragmentDetailsBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
 //
@@ -53,6 +55,31 @@ class DetailsFragment : Fragment() {
         viewModel.movieDescription.value = movieDescription
         viewModel.movieReleaseDate.value = movieReleaseDate
         viewModel.movieVoteAverage.value = movieVoteAverage
+        viewModel.isFavMovie.value = isFavMovie.toBoolean()
+        if (viewModel.isFavMovie.value!!) {
+            binding.likeImg.setImageResource(R.drawable.ic_baseline_favorite)
+        }
+//        binding.likeImg.setOnClickListener {
+//            if (!viewModel.isFavMovie.value!!) {
+//                binding.likeImg.setImageResource(R.drawable.ic_baseline_favorite)
+//                viewModel.movie.value!!.find { it.title!! == viewModel.movieTitle.value!! }
+//                    ?.let { it1 ->
+//                        MovieViewModel.favMovieList.favMoviesList.add(
+//                            it1
+//                        )
+//                    }
+//                viewModel.isFavMovie.value = !viewModel.isFavMovie.value!!
+//            } else {
+//                binding.likeImg.setImageResource(R.drawable.ic_baseline_favorite_border)
+//                viewModel.movie.value!!.find { it.title!! == viewModel.movieTitle.value!! }
+//                    ?.let { it1 ->
+//                        MovieViewModel.favMovieList.favMoviesList.remove(
+//                            it1
+//                        )
+//                    }
+//                viewModel.isFavMovie.value = !viewModel.isFavMovie.value!!
+//            }
+//        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -63,8 +90,9 @@ class DetailsFragment : Fragment() {
         when (item.itemId) {
             R.id.favorite_page -> {
                 findNavController().navigate(R.id.action_detailsFragment_to_favouriteFragment)
-            } else -> {
-           this.upToTop()
+            }
+            else -> {
+                this.upToTop()
             }
         }
         return true
@@ -76,6 +104,6 @@ class DetailsFragment : Fragment() {
         const val MOVIERELEASEDATE = "movieReleaseDate"
         const val MOVIEDESCRIPTION = "movieDescription"
         const val MOVIEVOTEAVERAGE = "movieVoteAverage"
+        const val ISFAVMOVIE = "isFavMovie"
     }
 }
-

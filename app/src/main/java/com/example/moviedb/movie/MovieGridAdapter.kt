@@ -29,7 +29,8 @@ class MovieGridAdapter(var flag: String) :
                         item.poster_path,
                         item.release_date,
                         item.overview,
-                        item.vote_average.toString()
+                        item.vote_average.toString(),
+                        item.isFavMovie.toString()
                     )
                 } else {
                     action = FavouriteFragmentDirections.actionFavouriteFragmentToDetailsFragment(
@@ -37,7 +38,8 @@ class MovieGridAdapter(var flag: String) :
                         item.poster_path,
                         item.release_date,
                         item.overview,
-                        item.vote_average.toString()
+                        item.vote_average.toString(),
+                        item.isFavMovie.toString()
                     )
                 }
                 binding.root.findNavController()
