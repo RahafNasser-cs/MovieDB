@@ -46,6 +46,9 @@
         <argument
             android:name="movieVoteAverage"
             app:argType="string" />
+        <argument
+            android:name="isFavMovie"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/favouriteFragment"

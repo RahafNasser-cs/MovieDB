@@ -31,6 +31,8 @@ class MovieViewModel : ViewModel() {
     val movieDescription: MutableLiveData<String> get() = _movieDescription
     private var _movieVoteAverage = MutableLiveData<String>()
     val movieVoteAverage: MutableLiveData<String> get() = _movieVoteAverage
+    private var _isFavMovie = MutableLiveData<Boolean>()
+    val isFavMovie: MutableLiveData<Boolean> get() = _isFavMovie
 
     init {
         getMovie()
