@@ -8,4 +8,91 @@
         android:icon="@drawable/ic_baseline_favorite"
         app:showAsAction="always"
         android:title="Favorites"/>
+    <item
+        android:id="@+id/filter"
+        android:icon="@drawable/ic_baseline_filter"
+        app:showAsAction="always"
+        android:title="Filter"/>
+    <item
+        android:id="@+id/drama"
+        app:showAsAction="never"
+        android:title="Drama"/>
+    <item
+        android:id="@+id/action"
+        app:showAsAction="never"
+        android:title="Action"/>
+    <item
+        android:id="@+id/adventure"
+        app:showAsAction="never"
+        android:title="Adventure"/>
+    <item
+        android:id="@+id/animation"
+        app:showAsAction="never"
+        android:title="Animation"/>
+    <item
+        android:id="@+id/comedy"
+        app:showAsAction="never"
+        android:title="Comedy"/>
+    <item
+        android:id="@+id/documentary"
+        app:showAsAction="never"
+        android:title="Documentary"/>
+    <item
+        android:id="@+id/family"
+        app:showAsAction="never"
+        android:title="Family"/>
+    <item
+        android:id="@+id/fantasy"
+        app:showAsAction="never"
+        android:title="Fantasy"/>
+    <item
+        android:id="@+id/crime"
+        app:showAsAction="never"
+        android:title="Crime"/>
+    <item
+        android:id="@+id/history"
+        app:showAsAction="never"
+        android:title="History"/>
+    <item
+        android:id="@+id/horror"
+        app:showAsAction="never"
+        android:title="Horror"/>
+    <item
+        android:id="@+id/music"
+        app:showAsAction="never"
+        android:title="Music"/>
+    <item
+        android:id="@+id/mystery"
+        app:showAsAction="never"
+        android:title="Mystery"/>
+    <item
+        android:id="@+id/romance"
+        app:showAsAction="never"
+        android:title="Romance"/>
+    <item
+        android:id="@+id/science_fiction"
+        app:showAsAction="never"
+        android:title="Science Fiction"/>
+    <item
+        android:id="@+id/tv_movie"
+        app:showAsAction="never"
+        android:title="TV Movie"/>
+    <item
+        android:id="@+id/thriller"
+        app:showAsAction="never"
+        android:title="Thriller"/>
+    <item
+        android:id="@+id/war"
+        app:showAsAction="never"
+        android:title="War"/>
+    <item
+        android:id="@+id/western"
+        app:showAsAction="never"
+        android:title="Western"/>
+    <item
+        android:id="@+id/no_filter"
+        app:showAsAction="never"
+        android:title="No filter"/>
+
+
 </menu>
