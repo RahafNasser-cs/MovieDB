@@ -33,6 +33,10 @@ class MovieViewModel : ViewModel() {
     val movieVoteAverage: MutableLiveData<String> get() = _movieVoteAverage
     private var _isFavMovie = MutableLiveData<Boolean>()
     val isFavMovie: MutableLiveData<Boolean> get() = _isFavMovie
+    private var _backdropPath = MutableLiveData<String>()
+    val backdropPath: MutableLiveData<String> get() = _backdropPath
+    private var _movieType = MutableLiveData<String>()
+    val movieType: MutableLiveData<String> get() = _movieType
 
     init {
         getMovie()
@@ -56,6 +60,14 @@ class MovieViewModel : ViewModel() {
 
     fun setFavMovieList() {
         _favMovies.value = favMovieList.loadFavMovie()
+    }
+
+    fun setMovieType() {
+        _movie.value!!.forEach {
+            if (it.title == _movieTitle.value!!) {
+                _movieType.value = it.movieType.toString()
+            }
+        }
     }
 
     fun loadMovieList(filterTag: MovieType) {

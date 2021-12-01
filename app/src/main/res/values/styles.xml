@@ -16,5 +16,10 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <!-- Divider style -->
+    <style name="Widget.ToDo.Divider" parent="">
+        <item name="android:background">?attr/dividerHorizontal</item>
+    </style>
+
 
 </resources>
