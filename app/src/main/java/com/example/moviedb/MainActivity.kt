@@ -20,13 +20,4 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
-
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        when (item.itemId) {
-//            R.id.favorite_page -> {
-//                currentNavController.navigate(R.id.action_homeFragment_to_favouriteFragment)
-//            }
-//        }
-//        return true
-//    }
 }

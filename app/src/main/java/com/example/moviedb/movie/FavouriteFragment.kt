@@ -42,8 +42,5 @@ class FavouriteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title = "Favourite"
-//        requireActivity().onBackPressedDispatcher.addCallback {
-//            findNavController().navigateUp()
-//        }
     }
 }
