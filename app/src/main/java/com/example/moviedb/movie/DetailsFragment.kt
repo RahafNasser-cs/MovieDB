@@ -105,13 +105,16 @@ class DetailsFragment : Fragment() {
     }
 
     fun shareMovie() {
-        val sharingIntent = Intent(Intent.ACTION_SEND)
-        sharingIntent.type = "text/plain"
-        val shareBody =
-            "Hey Check out this movie -" + "\n\n" + movieTitle + "\n\n" + movieDescription
-        sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject Here")
-        sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody)
-        startActivity(Intent.createChooser(sharingIntent, "Share via"))
+        val intent = Intent(Intent.ACTION_SEND).putExtra(
+            Intent.EXTRA_TEXT,
+            "I'm watching ${viewModel.movieTitle.value}" +
+                " link : https://www.themoviedb.org/movie/" +
+                "${viewModel.movie.value?.find { it.title == viewModel.movieTitle.value }!!.id}"
+        )
+            .setType("text/plain")
+        if (activity?.packageManager?.resolveActivity(intent, 0) != null) {
+            startActivity(intent)
+        }
     }
 
     companion object {
