@@ -27,7 +27,7 @@
 # MovieDB UI
 ![Screenshot (116)](https://user-images.githubusercontent.com/92260346/144331522-3e1d8887-5ae8-46d4-9836-dc7aec98fddd.png)
 ![Screenshot (119)](https://user-images.githubusercontent.com/92260346/144331537-94158e97-bf1f-49d5-af91-45d3f459ef33.png)
-![Screenshot (123)](https://user-images.githubusercontent.com/92260346/144331572-c40aa059-5373-4535-84ae-3ae0c6a45b3c.png)
+![Screenshot (124)](https://user-images.githubusercontent.com/92260346/144334993-45b173ee-16ea-4881-9467-af1bc7181234.png)
 ![Screenshot (122)](https://user-images.githubusercontent.com/92260346/144331588-a1522b00-03c4-434a-a746-f2e6c74e7223.png)
 
 
