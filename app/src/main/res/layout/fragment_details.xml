@@ -27,7 +27,7 @@
                 android:id="@+id/cover_pic"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:layout_marginTop="-35dp"
+                android:layout_marginTop="-50dp"
                 android:src="@drawable/favorite_filled"
                 app:imageUrl="@{viewModel.backdropPath}"
                 app:layout_constraintEnd_toEndOf="parent"

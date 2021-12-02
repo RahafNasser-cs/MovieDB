@@ -58,6 +58,23 @@ class MovieViewModel : ViewModel() {
         }
     }
 
+    fun getMoviesById(id: Int?) {
+        if (id == null) {
+            _movie.value = tempMovieList
+        }
+        viewModelScope.launch {
+            _status.value = MovieApiStatus.LOADING
+            try {
+                _movie.value = MovieApi.retrofitService.getMoviesByType(id).results
+                _status.value = MovieApiStatus.DONE
+            } catch (e: Exception) {
+                Log.d("viewModelScope", "error --> $e")
+                _status.value = MovieApiStatus.ERROR
+                movie.value = listOf()
+            }
+        }
+    }
+
     fun setFavMovieList() {
         _favMovies.value = favMovieList.loadFavMovie()
     }
