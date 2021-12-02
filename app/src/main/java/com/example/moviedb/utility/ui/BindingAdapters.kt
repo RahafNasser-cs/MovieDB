@@ -16,7 +16,7 @@ fun ImageView.bindImage(imageUrl: String?) {
         // val imageUri = imageUrl.toUri().buildUpon().scheme("https").build()
         this.load("https://image.tmdb.org/t/p/w500" + imageUrl) {
             placeholder(R.drawable.loading_animation)
-            error(R.drawable.ic_broken_image)
+            error(R.drawable.broken_image)
         }
     }
 }
@@ -36,7 +36,7 @@ fun ImageView.bindApiStatus(status: MovieApiStatus?) {
         }
         MovieApiStatus.ERROR -> {
             this.visibility = View.VISIBLE
-            this.setImageResource(R.drawable.ic_connection_error)
+            this.setImageResource(R.drawable.connection_error)
         }
         MovieApiStatus.DONE -> {
             this.visibility = View.GONE

@@ -1,5 +1,6 @@
 package com.example.moviedb.movie
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
@@ -43,8 +44,11 @@ class DetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDetailsBinding.inflate(inflater, container, false)
-        binding.viewModel = viewModel
-        binding.lifecycleOwner = this
+        binding.apply {
+            viewModel = this@DetailsFragment.viewModel
+            lifecycleOwner = this@DetailsFragment.viewLifecycleOwner
+            detailsFragment = this@DetailsFragment
+        }
         return binding.root
     }
 
@@ -59,7 +63,7 @@ class DetailsFragment : Fragment() {
         viewModel.isFavMovie.value = isFavMovie.toBoolean()
         viewModel.backdropPath.value = backdropPath
         if (viewModel.isFavMovie.value!!) {
-            binding.likeImg.setImageResource(R.drawable.ic_baseline_favorite)
+            binding.likeImg.setImageResource(R.drawable.favorite_filled)
         }
 //        binding.likeImg.setOnClickListener {
 //            if (!viewModel.isFavMovie.value!!) {
@@ -98,6 +102,16 @@ class DetailsFragment : Fragment() {
             }
         }
         return true
+    }
+
+    fun shareMovie() {
+        val sharingIntent = Intent(Intent.ACTION_SEND)
+        sharingIntent.type = "text/plain"
+        val shareBody =
+            "Hey Check out this movie -" + "\n\n" + movieTitle + "\n\n" + movieDescription
+        sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject Here")
+        sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody)
+        startActivity(Intent.createChooser(sharingIntent, "Share via"))
     }
 
     companion object {
