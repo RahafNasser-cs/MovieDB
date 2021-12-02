@@ -51,11 +51,11 @@ class MovieGridAdapter(var flag: String) :
                 Log.d("adapter before", "${favMovieList.loadFavMovie()}")
 
                 if (!item.isFavMovie) {
-                    binding.likeImg.setImageResource(R.drawable.ic_baseline_favorite)
+                    binding.likeImg.setImageResource(R.drawable.favorite_filled)
                     favMovieList.favMoviesList.add(item)
                     item.isFavMovie = !item.isFavMovie
                 } else {
-                    binding.likeImg.setImageResource(R.drawable.ic_baseline_favorite_border)
+                    binding.likeImg.setImageResource(R.drawable.favorite_border)
                     favMovieList.favMoviesList.removeAll { it.id == item.id }
                     item.isFavMovie = !item.isFavMovie
                 }
@@ -63,7 +63,7 @@ class MovieGridAdapter(var flag: String) :
                 Log.d("adapter after", "${favMovieList.loadFavMovie()}")
             }
             if (item.isFavMovie) {
-                binding.likeImg.setImageResource(R.drawable.ic_baseline_favorite)
+                binding.likeImg.setImageResource(R.drawable.favorite_filled)
             }
         }
     }

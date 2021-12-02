@@ -5,12 +5,12 @@
 
     <item
         android:id="@+id/favorite_page"
-        android:icon="@drawable/ic_baseline_favorite"
+        android:icon="@drawable/favorite_filled"
         app:showAsAction="always"
         android:title="Favorites"/>
     <item
         android:id="@+id/filter"
-        android:icon="@drawable/ic_baseline_filter"
+        android:icon="@drawable/filter"
         app:showAsAction="always"
         android:title="Filter">
         <menu>
