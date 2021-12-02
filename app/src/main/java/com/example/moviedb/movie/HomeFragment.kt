@@ -52,64 +52,84 @@ class HomeFragment : Fragment() {
                 findNavController().navigate(R.id.action_homeFragment_to_favouriteFragment)
             }
             R.id.drama -> {
-                loadFilteredList(MovieType.DRAMA)
+                // loadFilteredList(MovieType.DRAMA)
+                viewModel.getMoviesById(MovieType.DRAMA.id)
             }
             R.id.history -> {
-                loadFilteredList(MovieType.HISTORY)
+                // loadFilteredList(MovieType.HISTORY)
+                viewModel.getMoviesById(MovieType.HISTORY.id)
             }
             R.id.war -> {
-                loadFilteredList(MovieType.WAR)
+                // loadFilteredList(MovieType.WAR)
+                viewModel.getMoviesById(MovieType.WAR.id)
             }
             R.id.western -> {
-                loadFilteredList(MovieType.WESTERN)
+                // loadFilteredList(MovieType.WESTERN)
+                viewModel.getMoviesById(MovieType.WESTERN.id)
             }
             R.id.thriller -> {
-                loadFilteredList(MovieType.THRILLER)
+                // loadFilteredList(MovieType.THRILLER)
+                viewModel.getMoviesById(MovieType.THRILLER.id)
             }
             R.id.tv_movie -> {
-                loadFilteredList(MovieType.TV_MOVIE)
+                // loadFilteredList(MovieType.TV_MOVIE)
+                viewModel.getMoviesById(MovieType.TV_MOVIE.id)
             }
             R.id.science_fiction -> {
-                loadFilteredList(MovieType.SCIENCE_FICTION)
+                // loadFilteredList(MovieType.SCIENCE_FICTION)
+                viewModel.getMoviesById(MovieType.SCIENCE_FICTION.id)
             }
             R.id.romance -> {
-                loadFilteredList(MovieType.ROMANCE)
+                // loadFilteredList(MovieType.ROMANCE)
+                viewModel.getMoviesById(MovieType.ROMANCE.id)
             }
             R.id.mystery -> {
-                loadFilteredList(MovieType.MYSTERY)
+                // loadFilteredList(MovieType.MYSTERY)
+                viewModel.getMoviesById(MovieType.MYSTERY.id)
             }
             R.id.music -> {
-                loadFilteredList(MovieType.MUSIC)
+                // loadFilteredList(MovieType.MUSIC)
+                viewModel.getMoviesById(MovieType.MUSIC.id)
             }
             R.id.horror -> {
-                loadFilteredList(MovieType.HORROR)
+                // loadFilteredList(MovieType.HORROR)
+                viewModel.getMoviesById(MovieType.HORROR.id)
             }
             R.id.fantasy -> {
-                loadFilteredList(MovieType.FANTASY)
+                // loadFilteredList(MovieType.FANTASY)
+                viewModel.getMoviesById(MovieType.FANTASY.id)
             }
             R.id.family -> {
-                loadFilteredList(MovieType.FAMILY)
+                // loadFilteredList(MovieType.FAMILY)
+                viewModel.getMoviesById(MovieType.FAMILY.id)
             }
             R.id.documentary -> {
-                loadFilteredList(MovieType.DOCUMENTARY)
+                // loadFilteredList(MovieType.DOCUMENTARY)
+                viewModel.getMoviesById(MovieType.DOCUMENTARY.id)
             }
             R.id.action -> {
-                loadFilteredList(MovieType.ACTION)
+                // loadFilteredList(MovieType.ACTION)
+                viewModel.getMoviesById(MovieType.ACTION.id)
             }
             R.id.adventure -> {
-                loadFilteredList(MovieType.ADVENTURE)
+                // loadFilteredList(MovieType.ADVENTURE)
+                viewModel.getMoviesById(MovieType.ADVENTURE.id)
             }
             R.id.crime -> {
-                loadFilteredList(MovieType.CRIME)
+                // loadFilteredList(MovieType.CRIME)
+                viewModel.getMoviesById(MovieType.CRIME.id)
             }
             R.id.animation -> {
-                loadFilteredList(MovieType.ANIMATION)
+                // loadFilteredList(MovieType.ANIMATION)
+                viewModel.getMoviesById(MovieType.ANIMATION.id)
             }
             R.id.comedy -> {
-                loadFilteredList(MovieType.COMEDY)
+                // loadFilteredList(MovieType.COMEDY)
+                viewModel.getMoviesById(MovieType.COMEDY.id)
             }
             R.id.no_filter -> {
-                loadFilteredList(MovieType.NULL)
+                // loadFilteredList(MovieType.NULL)
+                viewModel.getMoviesById(null)
             }
         }
         return true
