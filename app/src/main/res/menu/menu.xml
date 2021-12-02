@@ -16,6 +16,11 @@
         <menu>
             <group
                 android:checkableBehavior="single">
+                <item
+                    android:title="Sort by category"
+                    android:enabled="false"
+                    android:checkable="false"
+                    />
             <item
                 android:id="@+id/drama"
                 app:showAsAction="never"
@@ -92,10 +97,25 @@
                 android:id="@+id/western"
                 app:showAsAction="never"
                 android:title="Western"/>
-            <item
-                android:id="@+id/no_filter"
-                app:showAsAction="never"
-                android:title="No filter"/>
+            </group>
+            <group
+                android:checkableBehavior="single">
+                <item
+                    android:title="Sort by date"
+                    android:enabled="false"
+                    android:checkable="false"
+                    />
+                <item
+                    android:id="@+id/sort_released_date"
+                    app:showAsAction="never"
+                    android:title="Sort by released date"/>
+            </group>
+            <group
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/no_filter"
+                    app:showAsAction="never"
+                    android:title="No filter"/>
             </group>
         </menu>
     </item>
