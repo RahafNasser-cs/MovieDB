@@ -131,6 +131,9 @@ class HomeFragment : Fragment() {
                 // loadFilteredList(MovieType.NULL)
                 viewModel.getMoviesById(null)
             }
+            R.id.sort_released_date -> {
+                viewModel.sortMoviesByReleasedDate()
+            }
         }
         return true
     }

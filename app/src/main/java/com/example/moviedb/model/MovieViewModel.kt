@@ -101,6 +101,11 @@ class MovieViewModel : ViewModel() {
         }
     }
 
+    fun sortMoviesByReleasedDate() {
+        var movieListTemp = _movie.value?.toMutableList()
+        _movie.value = movieListTemp?.sortedBy { it.release_date }
+    }
+
     companion object {
         val favMovieList = FavouriteMovies()
     }
