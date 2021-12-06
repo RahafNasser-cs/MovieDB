@@ -37,8 +37,9 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="370dp"
                 android:layout_height="480dp"
-                android:layout_marginTop="200dp"
+                android:layout_marginTop="180dp"
                 android:backgroundTint="@color/white_dark"
+                app:cardCornerRadius="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +89,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="@{viewModel.movieType}"
+                            android:text="@{viewModel.editMovieTypeFormat()}"
                             app:layout_constraintStart_toStartOf="@+id/released_date"
                             app:layout_constraintTop_toBottomOf="@+id/released_date" />
 

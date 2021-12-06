@@ -21,6 +21,7 @@ class DetailsFragment : Fragment() {
     lateinit var movieVoteAverage: String
     lateinit var isFavMovie: String
     lateinit var backdropPath: String
+    lateinit var movieType: String
     lateinit var binding: FragmentDetailsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +36,7 @@ class DetailsFragment : Fragment() {
             movieVoteAverage = it.getString(MOVIEVOTEAVERAGE).toString()
             isFavMovie = it.getString(ISFAVMOVIE).toString()
             backdropPath = it.getString(BACKGROUNDPATH).toString()
+            movieType = it.getString(MOVIETYPE).toString()
         }
     }
 
@@ -62,6 +64,7 @@ class DetailsFragment : Fragment() {
         viewModel.movieVoteAverage.value = movieVoteAverage
         viewModel.isFavMovie.value = isFavMovie.toBoolean()
         viewModel.backdropPath.value = backdropPath
+        viewModel.movieType.value = movieType
         if (viewModel.isFavMovie.value!!) {
             binding.likeImg.setImageResource(R.drawable.favorite_filled)
         }
@@ -125,5 +128,6 @@ class DetailsFragment : Fragment() {
         const val MOVIEVOTEAVERAGE = "movieVoteAverage"
         const val ISFAVMOVIE = "isFavMovie"
         const val BACKGROUNDPATH = "backdropPath"
+        const val MOVIETYPE = "movieType"
     }
 }
