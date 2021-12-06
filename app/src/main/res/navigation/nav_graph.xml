@@ -52,6 +52,9 @@
         <argument
             android:name="backdropPath"
             app:argType="string" />
+        <argument
+            android:name="movieType"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/favouriteFragment"

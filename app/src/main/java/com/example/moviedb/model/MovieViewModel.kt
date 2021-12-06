@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.moviedb.network.MovieType
 import com.example.moviedb.network.ResultsItem
+import com.example.moviedb.utility.ui.capitalizeFormat
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
@@ -80,12 +81,8 @@ class MovieViewModel : ViewModel() {
         _favMovies.value = favMovieList.loadFavMovie()
     }
 
-    fun setMovieType() {
-        _movie.value!!.forEach {
-            if (it.title == _movieTitle.value!!) {
-                _movieType.value = it.movieType.toString()
-            }
-        }
+    fun editMovieTypeFormat(): String {
+        return _movieType.value.toString().capitalizeFormat()
     }
 
     fun loadMovieList(filterTag: MovieType) {

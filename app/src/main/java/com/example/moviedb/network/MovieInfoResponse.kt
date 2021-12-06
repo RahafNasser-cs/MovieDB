@@ -1,5 +1,7 @@
 package com.example.moviedb.network
 
+import com.example.moviedb.utility.ui.capitalizeFormat
+
 enum class MovieType(val id: Int) {
     ANIMATION(16), ACTION(28), ADVENTURE(12), COMEDY(35), CRIME(80),
     DOCUMENTARY(99), DRAMA(18), FAMILY(10751), FANTASY(14), HISTORY(36),
@@ -66,5 +68,9 @@ data class ResultsItem(
                 movieType = type
             }
         }
+    }
+
+    fun movieTypeAsString(): String {
+        return movieType.toString().capitalizeFormat()
     }
 }
