@@ -21,7 +21,7 @@ interface MovieApiService {
     @GET("/3/movie/popular?api_key=aecfaa3cec82d0f9182bbf8e19b77f75")
     suspend fun getInfo(): MovieInfoResponse
 
-    @GET("https://api.themoviedb.org/3/discover/movie?api_key=aecfaa3cec82d0f9182bbf8e19b77f75")
+    @GET("/3/discover/movie?api_key=aecfaa3cec82d0f9182bbf8e19b77f75")
     suspend fun getMoviesByType(@Query("with_genres") id: Int?): MovieInfoResponse
 }
 
